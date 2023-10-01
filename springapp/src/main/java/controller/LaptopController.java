@@ -10,11 +10,17 @@ public class LaptopController{
     private ApiService apiService;
     @PostMapping("/")
     public boolean addLaptop(@RequestBody Laptop laptop){
-
+           boolean added=apiService.addLaptop(laptop);
+           return added;
     }
     @GetMapping("/{laptopId}")
     public Laptop getLaptopById(@PathVariable int laptopId){
-
+          Laptop laptop=apiService.getLaptopById(laptopId);
+          return laptop;
     }
-    @
+    @GetMapping("/")
+    public List<Laptop> getAllLaptops(){
+         List <Laptop> laptops=apiService.getAllLaptops();
+         return laptops; 
+    }
 }
